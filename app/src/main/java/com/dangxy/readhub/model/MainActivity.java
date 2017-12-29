@@ -7,10 +7,11 @@ import com.dangxy.readhub.R;
 import com.dangxy.readhub.base.BaseActivity;
 
 import butterknife.BindView;
+
 /**
- * @description  描述
- * @author  dangxy99
- * @date   2017/12/30
+ * @author dangxy99
+ * @description 描述
+ * @date 2017/12/30
  */
 public class MainActivity extends BaseActivity {
 
@@ -24,6 +25,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
 
         ReadhubAdapter readhubAdapter = new ReadhubAdapter(getSupportFragmentManager());
+        vpReadHubList.setOffscreenPageLimit(3);
         vpReadHubList.setAdapter(readhubAdapter);
         tlReadHubList.setupWithViewPager(vpReadHubList);
         tlReadHubList.setTabMode(TabLayout.MODE_FIXED);

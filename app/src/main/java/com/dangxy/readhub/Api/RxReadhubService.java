@@ -5,7 +5,6 @@ import com.dangxy.readhub.entity.TeachEntity;
 import com.dangxy.readhub.entity.TopicEntity;
 
 import io.reactivex.Observable;
-import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -23,7 +22,7 @@ public interface RxReadhubService {
      * @return
      */
     @GET("news")
-    Call<NewEntity> listNews(@Query("lastCursor") String lastCursor, @Query("pageSize") int pageSize);
+    Observable<NewEntity> listNews(@Query("lastCursor") String lastCursor, @Query("pageSize") int pageSize);
     /**
      * 获取热门话题
      * @param lastCursor
@@ -39,5 +38,5 @@ public interface RxReadhubService {
      * @return
      */
     @GET("technews")
-    Call<TeachEntity> listTechNews(@Query("lastCursor") String lastCursor, @Query("pageSize") int pageSize);
+    Observable<TeachEntity> listTechNews(@Query("lastCursor") String lastCursor, @Query("pageSize") int pageSize);
 }

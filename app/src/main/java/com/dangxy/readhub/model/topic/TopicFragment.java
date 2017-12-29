@@ -1,30 +1,66 @@
 package com.dangxy.readhub.model.topic;
 
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.dangxy.readhub.R;
+import com.dangxy.readhub.ReadhubApplication;
+import com.dangxy.readhub.base.BaseLazyFragment;
+import com.dangxy.readhub.entity.TopicEntity;
+
+import butterknife.BindView;
 
 /**
- * A simple {@link Fragment} subclass.
+ * @author dangxy99
+ * @description 热门话题
+ * @date 2017/12/30
  */
-public class TopicFragment extends Fragment {
+public class TopicFragment extends BaseLazyFragment implements TopicContract.ITopicView {
 
+
+    @BindView(R.id.rv_topic)
+    RecyclerView rvTopic;
+    @BindView(R.id.srl_topic)
+    SwipeRefreshLayout srlTopic;
+    private TopicPresenter topicPresenter;
+    private TopicListAdapter topicListAdapter;
 
     public TopicFragment() {
-        // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_topic, container, false);
+    protected int attachLayoutRes() {
+        return R.layout.fragment_topic;
     }
 
+    @Override
+    protected void initViews() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ReadhubApplication.getInstance());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rvTopic.setLayoutManager(linearLayoutManager);
+    }
+
+    @Override
+    protected void loadData() {
+        topicPresenter = new TopicPresenter(this);
+        topicPresenter.getData();
+        topicPresenter.setRefresh(srlTopic, rvTopic);
+
+    }
+
+
+    @Override
+    public void setRefresh(TopicEntity topicEntity) {
+        topicListAdapter.refresh(topicEntity.getData());
+    }
+
+    @Override
+    public void getTopicEntity(TopicEntity topicEntity, int page) {
+         topicListAdapter = new TopicListAdapter(topicEntity.getData());
+        rvTopic.setAdapter(topicListAdapter);
+
+    }
 }
