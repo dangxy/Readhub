@@ -1,5 +1,6 @@
 package com.dangxy.readhub.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -20,6 +21,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
     @Nullable
     @BindView(R.id.empty_layout)
     protected EmptyLayout mEmptyLayout;
+    protected Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
         setContentView(attachLayoutRes());
         ButterKnife.bind(this);
         initView();
+        mContext=this;
     }
     /**
      * 初始化view

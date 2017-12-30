@@ -29,7 +29,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".model.SplashActivity"></activity>
+        <activity android:name=".model.SplashActivity" />
+        <activity android:name=".model.SettingActivity" />
+        <activity android:name=".model.WebViewDetailActivity"></activity>
     </application>
 
 </manifest>

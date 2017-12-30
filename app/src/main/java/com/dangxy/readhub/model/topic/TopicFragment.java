@@ -1,6 +1,7 @@
 package com.dangxy.readhub.model.topic;
 
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,7 @@ import com.dangxy.readhub.R;
 import com.dangxy.readhub.ReadhubApplication;
 import com.dangxy.readhub.base.BaseLazyFragment;
 import com.dangxy.readhub.entity.TopicEntity;
+import com.dangxy.readhub.model.WebViewDetailActivity;
 
 import butterknife.BindView;
 
@@ -17,7 +19,7 @@ import butterknife.BindView;
  * @description 热门话题
  * @date 2017/12/30
  */
-public class TopicFragment extends BaseLazyFragment implements TopicContract.ITopicView {
+public class TopicFragment extends BaseLazyFragment implements TopicContract.ITopicView, TopicListAdapter.DetailClickListener {
 
 
     @BindView(R.id.rv_topic)
@@ -59,8 +61,16 @@ public class TopicFragment extends BaseLazyFragment implements TopicContract.ITo
 
     @Override
     public void getTopicEntity(TopicEntity topicEntity, int page) {
-         topicListAdapter = new TopicListAdapter(topicEntity.getData());
+        topicListAdapter = new TopicListAdapter(topicEntity.getData());
         rvTopic.setAdapter(topicListAdapter);
+        topicListAdapter.setOnDetailClickListener(this);
 
+    }
+
+    @Override
+    public void onDetailClickListener(String url) {
+        Intent intent = new Intent(mContext, WebViewDetailActivity.class);
+        intent.putExtra("url", url);
+        startActivity(intent);
     }
 }
