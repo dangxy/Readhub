@@ -49,44 +49,52 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="@dimen/card_padding">
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="none">
             <LinearLayout
+                android:id="@+id/ll_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
+                android:layout_height="450dp"
+                android:padding="3dp"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_detail_title"
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textColor="#2f3134"
-                    android:textSize="20sp" />
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@color/color_f5f5f5">
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="left"
+                        android:orientation="vertical">
 
-                </View>
+                        <TextView
+                            android:id="@+id/tv_detail_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#2f3134"
+                            android:textSize="20sp" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/color_f5f5f5">
 
-                <TextView
-                    android:id="@+id/summary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text=""
-                    android:lineSpacingExtra="8dp"
-                    android:textColor="#747780"
-                    android:textSize="18sp" />
+                        </View>
+
+                        <TextView
+                            android:id="@+id/summary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text=""
+                            android:lineSpacingExtra="8dp"
+                            android:textColor="#747780"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                </ScrollView>
             </LinearLayout>
 
-            </ScrollView>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -94,6 +102,7 @@
                 android:layout_marginBottom="42dp"
                 android:background="@color/color_f5f5f5"/>
             <RelativeLayout
+                android:id="@+id/rl_share"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_alignParentBottom="true">
@@ -101,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/icon_share_wechat"/>
+                    android:src="@drawable/icon_download"/>
 
             </RelativeLayout>
         </RelativeLayout>

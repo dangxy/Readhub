@@ -164,8 +164,8 @@ public class ViewUtils {
         return dm.heightPixels;
     }
 
-    private static final String SD_PATH = "/sdcard/dangxy/save/";
-    private static final String IN_PATH = "/dangxy/save/";
+    private static final String SD_PATH = "/sdcard/Readhub/save/";
+    private static final String IN_PATH = "/Readhub/save/";
 
     /**
      * 随机生产文件名
