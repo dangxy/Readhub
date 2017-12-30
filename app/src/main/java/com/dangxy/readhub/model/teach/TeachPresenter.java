@@ -2,6 +2,7 @@ package com.dangxy.readhub.model.teach;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 
 import com.dangxy.readhub.Api.RetrofitReadhub;
 import com.dangxy.readhub.Api.RxReadhubService;
@@ -9,7 +10,6 @@ import com.dangxy.readhub.ReadhubApplication;
 import com.dangxy.readhub.entity.TeachEntity;
 import com.dangxy.readhub.utils.Constant;
 import com.dangxy.readhub.utils.LoadMoreDelegate;
-import com.dangxy.readhub.utils.MLog;
 import com.dangxy.readhub.utils.TimeUtils;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -34,11 +34,13 @@ public class TeachPresenter implements TeachContract.ITeachPresenter, SwipeRefre
     private LoadMoreDelegate loadMoreDelegate;
     private AtomicInteger loadingCount;
     private String lastCursor = "";
+    private boolean isFirst;
 
     public TeachPresenter(TeachContract.ITeachView  iTeachView) {
         this.iTeachView = iTeachView;
         readhubService = new RetrofitReadhub().newInstance(ReadhubApplication.getInstance()).create(RxReadhubService.class);
     }
+
 
     public void setRefresh(SwipeRefreshLayout swipeRefreshLayout, RecyclerView recyclerView) {
         this.mSwipeRefreshLayout = swipeRefreshLayout;
@@ -51,7 +53,11 @@ public class TeachPresenter implements TeachContract.ITeachPresenter, SwipeRefre
 
     @Override
     public void getData() {
-          MLog.e("DANG","科技");
+        if(TextUtils.isEmpty(lastCursor)){
+            isFirst=true;
+        }else{
+            isFirst=false;
+        }
         readhubService.listTechNews(lastCursor, Constant.pageSize)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Consumer<Disposable>() {
@@ -76,7 +82,7 @@ public class TeachPresenter implements TeachContract.ITeachPresenter, SwipeRefre
                             iTeachView.setRefresh(teachEntity);
                         } else {
                             iTeachView.hideLoading();
-                            iTeachView.getTeachEntity(teachEntity, Constant.pageSize);
+                            iTeachView.getTeachEntity(teachEntity, isFirst);
 
                         }
 

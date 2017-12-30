@@ -13,7 +13,7 @@ public interface TopicContract {
     interface ITopicView extends IBaseView {
         void setRefresh(TopicEntity teachEntity);
 
-        void getTopicEntity(TopicEntity teachEntity, int page);
+        void getTopicEntity(TopicEntity teachEntity, boolean isFirst);
     }
 
     interface ITopicPresenter extends IBasePresenter {

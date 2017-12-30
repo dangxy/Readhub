@@ -2,6 +2,7 @@ package com.dangxy.readhub.model.news;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 
 import com.dangxy.readhub.Api.RetrofitReadhub;
 import com.dangxy.readhub.Api.RxReadhubService;
@@ -10,7 +11,6 @@ import com.dangxy.readhub.entity.NewEntity;
 import com.dangxy.readhub.model.teach.TeachContract;
 import com.dangxy.readhub.utils.Constant;
 import com.dangxy.readhub.utils.LoadMoreDelegate;
-import com.dangxy.readhub.utils.MLog;
 import com.dangxy.readhub.utils.TimeUtils;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -35,6 +35,7 @@ public class NewsPresenter implements TeachContract.ITeachPresenter, SwipeRefres
     private LoadMoreDelegate loadMoreDelegate;
     private AtomicInteger loadingCount;
     private String lastCursor = "";
+    private boolean isFirst;
 
     public NewsPresenter(NewsContract.INewsView iNewsView) {
         this.iNewsView = iNewsView;
@@ -52,7 +53,11 @@ public class NewsPresenter implements TeachContract.ITeachPresenter, SwipeRefres
 
     @Override
     public void getData() {
-        MLog.e("DANG","新闻");
+        if(TextUtils.isEmpty(lastCursor)){
+            isFirst=true;
+        }else{
+            isFirst=false;
+        }
         readhubService.listNews(lastCursor, Constant.pageSize)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Consumer<Disposable>() {
@@ -77,7 +82,7 @@ public class NewsPresenter implements TeachContract.ITeachPresenter, SwipeRefres
                             iNewsView.setRefresh(newEntity);
                         } else {
                             iNewsView.hideLoading();
-                            iNewsView.getNewsEntity(newEntity, Constant.pageSize);
+                            iNewsView.getNewsEntity(newEntity, isFirst);
 
                         }
 

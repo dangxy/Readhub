@@ -13,7 +13,7 @@ public interface TeachContract {
     interface ITeachView extends IBaseView {
         void setRefresh(TeachEntity teachEntity);
 
-        void getTeachEntity(TeachEntity teachEntity, int page);
+        void getTeachEntity(TeachEntity teachEntity, boolean isFirst);
     }
 
     interface ITeachPresenter extends IBasePresenter {

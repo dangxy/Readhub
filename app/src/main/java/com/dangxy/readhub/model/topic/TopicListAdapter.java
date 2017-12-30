@@ -31,7 +31,7 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.View
 
     public interface DetailClickListener {
 
-        void onDetailClickListener(String url);
+        void onDetailClickListener(String title,String summary,String url);
     }
 
     public void setOnDetailClickListener(DetailClickListener detailClickListener) {
@@ -58,7 +58,7 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.View
       holder.cardView.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              mDetailClickListener.onDetailClickListener(listEntities.get(position).getNewsArray().get(0).getUrl());
+              mDetailClickListener.onDetailClickListener(listEntities.get(position).getTitle(),listEntities.get(position).getSummary(),listEntities.get(position).getNewsArray().get(0).getUrl());
           }
       });
     }

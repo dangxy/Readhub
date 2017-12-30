@@ -10,7 +10,7 @@ import com.dangxy.readhub.R;
 import com.dangxy.readhub.ReadhubApplication;
 import com.dangxy.readhub.base.BaseLazyFragment;
 import com.dangxy.readhub.entity.TopicEntity;
-import com.dangxy.readhub.model.WebViewDetailActivity;
+import com.dangxy.readhub.model.DetailActivity;
 
 import butterknife.BindView;
 
@@ -60,17 +60,24 @@ public class TopicFragment extends BaseLazyFragment implements TopicContract.ITo
     }
 
     @Override
-    public void getTopicEntity(TopicEntity topicEntity, int page) {
-        topicListAdapter = new TopicListAdapter(topicEntity.getData());
-        rvTopic.setAdapter(topicListAdapter);
+    public void getTopicEntity(TopicEntity topicEntity, boolean  isFirst) {
+        if(isFirst){
+            topicListAdapter = new TopicListAdapter(topicEntity.getData());
+            rvTopic.setAdapter(topicListAdapter);
+        }else {
+            topicListAdapter.addAll(topicEntity.getData());
+        }
+
         topicListAdapter.setOnDetailClickListener(this);
 
     }
 
     @Override
-    public void onDetailClickListener(String url) {
-        Intent intent = new Intent(mContext, WebViewDetailActivity.class);
+    public void onDetailClickListener(String title,String summary,String url) {
+        Intent intent = new Intent(mContext, DetailActivity.class);
         intent.putExtra("url", url);
+        intent.putExtra("title", title);
+        intent.putExtra("summary", summary);
         startActivity(intent);
     }
 }

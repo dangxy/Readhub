@@ -13,7 +13,7 @@ public interface NewsContract {
     interface INewsView extends IBaseView {
         void setRefresh(NewEntity newEntity);
 
-        void getNewsEntity(NewEntity newEntity, int page);
+        void getNewsEntity(NewEntity newEntity, boolean isFirst);
     }
 
     interface INewsPresenter extends IBasePresenter {

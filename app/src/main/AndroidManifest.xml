@@ -31,7 +31,8 @@
         </activity>
         <activity android:name=".model.SplashActivity" />
         <activity android:name=".model.SettingActivity" />
-        <activity android:name=".model.WebViewDetailActivity"></activity>
+        <activity android:name=".model.WebViewDetailActivity" />
+        <activity android:name=".model.DetailActivity"></activity>
     </application>
 
 </manifest>

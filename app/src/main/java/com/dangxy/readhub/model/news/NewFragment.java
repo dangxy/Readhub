@@ -1,6 +1,7 @@
 package com.dangxy.readhub.model.news;
 
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,7 @@ import com.dangxy.readhub.R;
 import com.dangxy.readhub.ReadhubApplication;
 import com.dangxy.readhub.base.BaseLazyFragment;
 import com.dangxy.readhub.entity.NewEntity;
+import com.dangxy.readhub.model.DetailActivity;
 
 import butterknife.BindView;
 import butterknife.Unbinder;
@@ -18,7 +20,7 @@ import butterknife.Unbinder;
  * @author  dangxy99
  * @date   2017/12/30
  */
-public class NewFragment extends BaseLazyFragment implements NewsContract.INewsView {
+public class NewFragment extends BaseLazyFragment implements NewsContract.INewsView, NewshListAdapter.DetailClickListener {
 
 
     @BindView(R.id.rv_news)
@@ -60,8 +62,24 @@ public class NewFragment extends BaseLazyFragment implements NewsContract.INewsV
     }
 
     @Override
-    public void getNewsEntity(NewEntity newEntity, int page) {
-        newsListAdapter = new NewshListAdapter(newEntity.getData());
-        rvNews.setAdapter(newsListAdapter);
+    public void getNewsEntity(NewEntity newEntity, boolean isFirst) {
+        if(isFirst){
+            newsListAdapter = new NewshListAdapter(newEntity.getData());
+            rvNews.setAdapter(newsListAdapter);
+        }else {
+            newsListAdapter.addAll(newEntity.getData());
+        }
+        newsListAdapter.setOnDetailClickListener(this);
+
+    }
+
+
+    @Override
+    public void onDetailClickListener(String title, String summary, String url) {
+        Intent intent = new Intent(mContext, DetailActivity.class);
+        intent.putExtra("url", url);
+        intent.putExtra("title", title);
+        intent.putExtra("summary", summary);
+        startActivity(intent);
     }
 }

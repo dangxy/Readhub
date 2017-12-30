@@ -2,6 +2,7 @@ package com.dangxy.readhub.model.topic;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 
 import com.dangxy.readhub.Api.RetrofitReadhub;
 import com.dangxy.readhub.Api.RxReadhubService;
@@ -31,7 +32,8 @@ public class TopicPresenter implements TopicContract.ITopicPresenter, SwipeRefre
     private RecyclerView mRecyclerView;
     private LoadMoreDelegate loadMoreDelegate;
     private AtomicInteger loadingCount;
-    private String lastCursor = "";
+    private String lastCursor ="";
+    private boolean isFirst;
 
     public TopicPresenter(TopicContract.ITopicView iTopicView) {
         this.iTopicView = iTopicView;
@@ -49,6 +51,11 @@ public class TopicPresenter implements TopicContract.ITopicPresenter, SwipeRefre
 
     @Override
     public void getData() {
+        if(TextUtils.isEmpty(lastCursor)){
+            isFirst=true;
+        }else{
+            isFirst=false;
+        }
         readhubService.listTopicNews(lastCursor, Constant.pageSize)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Consumer<Disposable>() {
@@ -73,7 +80,7 @@ public class TopicPresenter implements TopicContract.ITopicPresenter, SwipeRefre
                             iTopicView.setRefresh(topicEntity);
                         } else {
                             iTopicView.hideLoading();
-                            iTopicView.getTopicEntity(topicEntity, Constant.pageSize);
+                            iTopicView.getTopicEntity(topicEntity, isFirst);
 
                         }
 

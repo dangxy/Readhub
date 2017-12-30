@@ -1,6 +1,11 @@
-<resources>   <dimen name="card_radius">2dp</dimen>
+<resources>
+    <dimen name="card_radius">2dp</dimen>
     <dimen name="card_padding">10dp</dimen>
     <dimen name="card_margin">3dp</dimen>
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="card_max_elevation">8dp</dimen>
+    <dimen name="card_new_padding">10dp</dimen>
+    <dimen name="card_new_margin">3dp</dimen>
+    <dimen name="card_new_elevation">5dp</dimen>
+    <dimen name="card_new_radius">12dp</dimen>
 </resources>

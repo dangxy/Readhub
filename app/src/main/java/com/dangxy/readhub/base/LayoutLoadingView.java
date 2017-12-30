@@ -18,8 +18,8 @@ public class LayoutLoadingView extends View {
     private Paint paint1;
     private Paint paint2;
     private Paint mPaintText;
-    private int color1 = Color.parseColor("#ffd90051");
-    private int color2 = Color.parseColor("#ffd90051");
+    private int color1 = Color.parseColor("#ff41516e");
+    private int color2 = Color.parseColor("#ff41516e");
 
     private boolean init = false;
     private ValueAnimator valueAnimator;
