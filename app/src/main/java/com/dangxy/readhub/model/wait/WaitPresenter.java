@@ -3,9 +3,6 @@ package com.dangxy.readhub.model.wait;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
-import com.dangxy.readhub.Api.RetrofitReadhub;
-import com.dangxy.readhub.Api.RxReadhubService;
-import com.dangxy.readhub.ReadhubApplication;
 import com.dangxy.readhub.room.Wait;
 import com.dangxy.readhub.room.WaitDataBase;
 
