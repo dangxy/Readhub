@@ -21,8 +21,7 @@
 
 ### 内容
 
-<img src="./data/02.png" width = "500" height = "800" alt="功能展示" />
-<img src="./data/01.png" width = "500" height = "800" alt="内容展示" />
+![内容展示](./data/download.png){:height="50%" width="50%"}
 
 ## 技术
 1. MVP
