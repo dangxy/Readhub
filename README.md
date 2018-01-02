@@ -2,9 +2,9 @@
 
 ## ReadhubClient 简介
 
-该应用这样为用户提供沉浸式阅读体验，极速体验等功能
+该应用提供沉浸式阅读体验，极速体验等功能
 
-**本项目重点是App的架构MVP,Rxjava，Retrofit等技术的运用 基类的封装，懒加载的运用等思想  非常容易看懂 方便学习理解掌握**
+**本项目重点是App的架构MVP,Rxjava，Retrofit等技术的运用 基类的封装，懒加载的运用等思想 容易看懂 方便学习理解掌握**
 
 
 ## 下载
@@ -32,6 +32,18 @@
 7. [懒加载](https://github.com/dangxy/Readhub/blob/master/app/src/main/java/com/dangxy/readhub/base/BaseLazyFragment.java)
 8. [缓存](https://developer.android.com/topic/libraries/architecture/room.html) 
 
+## 项目结构
+
+- api           网络封装
+- base          基类封装
+- mode-news     科技动态
+- mode-teach    开发者咨询
+- mode-topic    热门话题
+- mode-wait     稍后再看
+- mode-web      web加载
+- room          数据库
+- utils         工具类
+- widget        自定义控件
 
 ## 需要增加内容
 
@@ -40,7 +52,8 @@
 ###  1.1版本增加内容
  - 分享
  - 无限滑动浏览数据
-
+ - X5浏览器内核 加载数据 (正在开发中...)
+ 
 ## 版本
 
 ### 1.0版本
