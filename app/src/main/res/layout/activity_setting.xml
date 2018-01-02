@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.dangxy.readhub.model.SettingActivity">
+
     <RelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorPrimaryDark">
@@ -14,11 +15,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="设置"
-            android:textSize="14sp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:textColor="@color/common_color_white"/>
+            android:text="设置"
+            android:textColor="@color/common_color_white"
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/iv_back"
@@ -26,10 +27,48 @@
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:padding="10dp"
-            android:src="@drawable/icon_back"
-            />
+            android:src="@drawable/icon_back" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/rl_clean"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/rl_title">
 
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:text="清理缓存"
+            android:textColor="@color/color_222f3b" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="0M" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rl_clean"
+        android:background="@color/color_f5f5f5"></View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="App所有数据归无码科技所有 严禁商业"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>
