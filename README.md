@@ -15,10 +15,10 @@
 
 ## 内容
 
+<img src="https://ws4.sinaimg.cn/large/006tNc79ly1fn25qlh8icj30u01hc7b7.jpg" width="40%" alt=""/>
 
-![内容展示](https://ws4.sinaimg.cn/large/006tNc79ly1fn25qlh8icj30u01hc7b7.jpg)
-<img src="https://ws4.sinaimg.cn/large/006tNc79ly1fn25qlh8icj30u01hc7b7.jpg" width="60%" alt=""/>
 ## 技术
+
 1. MVP
 2. Retrofit
 3. Rxjava
