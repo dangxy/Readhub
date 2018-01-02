@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dangxy.readhub.R;
@@ -31,6 +32,8 @@ public class NewshListAdapter extends RecyclerView.Adapter<NewshListAdapter.View
     public interface DetailClickListener {
 
         void onDetailClickListener(String title, String summary, String url);
+
+        void onWaitClickListener(ImageView waitView, String id, String title, String summary, String url);
     }
 
     public void setOnDetailClickListener(NewshListAdapter.DetailClickListener detailClickListener) {
@@ -46,7 +49,7 @@ public class NewshListAdapter extends RecyclerView.Adapter<NewshListAdapter.View
 
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         holder.title.setText(listEntities.get(position).getTitle());
         holder.summary.setText(listEntities.get(position).getSummary());
@@ -56,6 +59,13 @@ public class NewshListAdapter extends RecyclerView.Adapter<NewshListAdapter.View
             @Override
             public void onClick(View view) {
                 mDetailClickListener.onDetailClickListener(listEntities.get(position).getTitle(), listEntities.get(position).getSummary(), listEntities.get(position).getMobileUrl());
+            }
+        });
+        holder.waitView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mDetailClickListener.onWaitClickListener(holder.waitView,listEntities.get(position).getId()+"",listEntities.get(position).getTitle(),listEntities.get(position).getSummary(),listEntities.get(position).getUrl());
             }
         });
     }
@@ -69,6 +79,7 @@ public class NewshListAdapter extends RecyclerView.Adapter<NewshListAdapter.View
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private  ImageView waitView;
         public TextView title, summary, more;
         public CardView cardView;
 
@@ -79,6 +90,7 @@ public class NewshListAdapter extends RecyclerView.Adapter<NewshListAdapter.View
             summary = (TextView) convertView.findViewById(R.id.summary);
             more = (TextView) convertView.findViewById(R.id.more);
             cardView = (CardView) convertView.findViewById(R.id.cardView);
+            waitView = (ImageView) convertView.findViewById(R.id.iv_wait);
         }
     }
 

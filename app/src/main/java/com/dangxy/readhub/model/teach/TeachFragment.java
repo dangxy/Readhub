@@ -2,15 +2,20 @@ package com.dangxy.readhub.model.teach;
 
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.dangxy.readhub.R;
 import com.dangxy.readhub.ReadhubApplication;
 import com.dangxy.readhub.base.BaseLazyFragment;
 import com.dangxy.readhub.entity.TeachEntity;
 import com.dangxy.readhub.model.DetailActivity;
+import com.dangxy.readhub.room.Wait;
+import com.dangxy.readhub.room.WaitDataBase;
 
 import butterknife.BindView;
 
@@ -28,6 +33,7 @@ public class TeachFragment extends BaseLazyFragment implements TeachContract.ITe
     SwipeRefreshLayout srlTeach;
     private TeachPresenter teachPresenter;
     private TeachListAdapter teachListAdapter;
+    private Wait wait;
 
     public TeachFragment() {
     }
@@ -78,4 +84,22 @@ public class TeachFragment extends BaseLazyFragment implements TeachContract.ITe
         intent.putExtra("summary", summary);
         startActivity(intent);
     }
+    @Override
+    public void onWaitClickListener(final ImageView imageView, String id, String title, String summary, String url) {
+        wait = new Wait(id, title, summary, url);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                WaitDataBase.getDatabase().waitDao().addWait(wait);
+            }
+        }).start();
+        Snackbar.make(imageView, "已添加到稍后再看", Snackbar.LENGTH_SHORT).setAction("知道了", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        }).show();
+
+    }
+
 }
