@@ -22,27 +22,45 @@
 ## 技术
 
 1. [MVP](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
+
 2. [Retrofit](https://github.com/square/retrofit)
+
 3. [Rxjava](https://github.com/ReactiveX/RxJava)
+
 3. [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+
 4. [Room](https://developer.android.com/topic/libraries/architecture/room.html) 
+
 5. [Glide](https://github.com/bumptech/glide)
+
 6. [Logger](https://github.com/orhanobut/logger)
+
 7. [RxLifecycle](https://github.com/trello/RxLifecycle)
+
 7. [懒加载](https://github.com/dangxy/Readhub/blob/master/app/src/main/java/com/dangxy/readhub/base/BaseLazyFragment.java)
+
 8. [缓存](https://developer.android.com/topic/libraries/architecture/room.html) 
 
 ## 项目结构
 
 - api           网络封装
+
 - base          基类封装
+
 - mode-news     科技动态
+
 - mode-teach    开发者咨询
+
 - mode-topic    热门话题
+
 - mode-wait     稍后再看
+
 - mode-web      web加载
+
 - room          数据库
+
 - utils         工具类
+
 - widget        自定义控件
 
 ## 需要增加内容
@@ -51,12 +69,15 @@
 	
 ###  1.1版本增加内容
  - 分享
+ 
  - 无限滑动浏览数据
+ 
  - X5浏览器内核 加载数据 (正在开发中...)
  
 ## 版本
 
 ### 1.0版本
+- 2018-01-02：1.0版本 Readme
 
 - 2018-01-01：数据缓存
 
