@@ -21,7 +21,7 @@
 
 ### 内容
 
-![内容展示](./data/01.png){:height="50%" width="50%"}
+![内容展示](https://ws4.sinaimg.cn/large/006tNc79ly1fn25qlh8icj30u01hc7b7.jpg)
 
 ## 技术
 1. MVP
