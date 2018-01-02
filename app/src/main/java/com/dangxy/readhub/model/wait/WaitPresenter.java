@@ -41,7 +41,6 @@ public class WaitPresenter implements WaitContract.IWaitPresenter, SwipeRefreshL
     public void getData() {
         WaitDataBase.getDatabase().waitDao().findAll()
                 .subscribeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<List<Wait>>() {
                     @Override
