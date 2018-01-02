@@ -20,9 +20,10 @@
 
 ### 内容
 
-![内容展示](./data/01.png =200*200 )
-![功能展示](./data/02.png =200*200)
-
+![内容展示](./data/01.png )
+![功能展示](./data/02.png )
+<img src="./data/02.png" width = "300" height = "200" alt="功能展示" align=center />
+<img src="./data/01.png" width = "300" height = "200" alt="内容展示" align=center />
 ## 技术
 1. MVP
 2. Retrofit
