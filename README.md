@@ -19,13 +19,14 @@
 
 ## 技术
 
-1. MVP
-2. Retrofit
-3. Rxjava
-3. RxAndroid
-4. Room
-5. Glide
-6. Logger
+1. [MVP](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
+2. [Retrofit](https://github.com/square/retrofit)
+3. [Rxjava](https://github.com/ReactiveX/RxJava)
+3. [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+4. [Room](https://developer.android.com/topic/libraries/architecture/room.html) 
+5. [Glide](https://github.com/bumptech/glide)
+6. [Logger](https://github.com/orhanobut/logger)
+7. [RxLifecycle](https://github.com/trello/RxLifecycle)
 7. 懒加载
 8. 缓存
 
