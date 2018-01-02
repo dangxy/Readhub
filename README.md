@@ -1,11 +1,13 @@
-# Readhub-Android
+# ReadhubClient
 
-## Readhub 简介
+## ReadhubClient 简介
 
-**该应用这样为用户提供沉浸式阅读体验，极速体验等功能**
+该应用这样为用户提供沉浸式阅读体验，极速体验等功能
+
+**本项目重点是App的架构MVP,Rxjava，Retrofit等技术的运用 基类的封装等思想  非常容易看懂 方便学习理解掌握**
+
 
 ## 下载
-
 
 ### 下载地址
 
@@ -27,8 +29,8 @@
 5. [Glide](https://github.com/bumptech/glide)
 6. [Logger](https://github.com/orhanobut/logger)
 7. [RxLifecycle](https://github.com/trello/RxLifecycle)
-7. 懒加载
-8. 缓存
+7. [懒加载](https://github.com/dangxy/Readhub/blob/master/app/src/main/java/com/dangxy/readhub/base/BaseLazyFragment.java)
+8. [缓存](https://developer.android.com/topic/libraries/architecture/room.html) 
 
 
 ## 需要增加内容
