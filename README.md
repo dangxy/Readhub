@@ -17,7 +17,7 @@
 
 ## 内容
 
-<img src="https://ws4.sinaimg.cn/large/006tNc79ly1fn285i5hfhj30u01hc0ze.jpg" width="40%" alt=""/>
+<img src="https://ws4.sinaimg.cn/large/006tNc79ly1fn37pimrdvj30u01hcq9y.jpg" width="40%" alt=""/>
 
 ## 技术
 

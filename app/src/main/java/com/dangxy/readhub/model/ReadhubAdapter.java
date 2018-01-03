@@ -31,7 +31,7 @@ public class ReadhubAdapter extends FragmentPagerAdapter {
         titleList = new ArrayList<>();
         titleList.add("热门话题");
         titleList.add("科技动态");
-        titleList.add("开发者咨询");
+        titleList.add("开发者资讯");
         titleList.add("稍等再看");
         initData();
     }
