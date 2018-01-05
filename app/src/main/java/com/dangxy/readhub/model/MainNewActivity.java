@@ -1,19 +1,24 @@
 package com.dangxy.readhub.model;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.dangxy.readhub.R;
-import com.dangxy.readhub.base.BaseActivity;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
- * @description  描述
- * @author  dangxy99
- * @date   2018/1/5
+ * @author dangxy99
+ * @description 描述
+ * @date 2018/1/5
  */
-public class MainNewActivity extends BaseActivity {
+public class MainNewActivity extends AppCompatActivity {
+
 
     @BindView(R.id.tl_read_hub_list)
     TabLayout tlReadHubList;
@@ -21,17 +26,18 @@ public class MainNewActivity extends BaseActivity {
     ViewPager vpReadHubList;
 
     @Override
-    protected void initView() {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_new);
+        ButterKnife.bind(this);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
         ReadhubAdapter readhubAdapter = new ReadhubAdapter(getSupportFragmentManager());
         vpReadHubList.setOffscreenPageLimit(3);
         vpReadHubList.setAdapter(readhubAdapter);
         tlReadHubList.setupWithViewPager(vpReadHubList);
         tlReadHubList.setTabMode(TabLayout.MODE_FIXED);
         tlReadHubList.setTabsFromPagerAdapter(readhubAdapter);
-    }
-
-    @Override
-    protected int attachLayoutRes() {
-        return R.layout.activity_main_new;
     }
 }
