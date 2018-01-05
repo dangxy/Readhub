@@ -1,5 +1,6 @@
 package com.dangxy.readhub.model;
 
+import android.Manifest;
 import android.graphics.Bitmap;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
@@ -14,6 +15,7 @@ import com.dangxy.readhub.R;
 import com.dangxy.readhub.base.BaseActivity;
 import com.dangxy.readhub.utils.ViewUtils;
 import com.jakewharton.rxbinding2.view.RxView;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -48,20 +50,25 @@ public class DetailActivity extends BaseActivity {
         tvDetailTitle.setText(title);
         summaryTitle.setText(summary);
 
-        RxView.clicks(rlShare).subscribe(new Consumer<Object>() {
-            @Override
-            public void accept(Object o) throws Exception {
-                Bitmap bitmap = com.dangxy.readhub.utils.ViewUtils.createBitmapFromView(llContent);
-                String path =  ViewUtils.saveBitmap(mContext, bitmap);
-                if(!TextUtils.isEmpty(path)){
-                    Snackbar.make(rlShare, "保存成功~", Snackbar.LENGTH_SHORT).setAction("知道了", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+        RxPermissions rxPermissions = new RxPermissions(this);
+
+        RxView.clicks(rlShare)
+                .compose(rxPermissions.ensure(Manifest.permission.WRITE_EXTERNAL_STORAGE))
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(Object o) throws Exception {
+                        Bitmap bitmap = com.dangxy.readhub.utils.ViewUtils.createBitmapFromView(llContent);
+                        String path = ViewUtils.saveBitmap(mContext, bitmap);
+                        if (!TextUtils.isEmpty(path)) {
+                            Snackbar.make(rlShare, "保存成功~", Snackbar.LENGTH_SHORT).setAction("知道了", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                }
+                            }).show();
                         }
-                    }).show();
-                }
-            }
-        });
+                    }
+                });
+
 
     }
 

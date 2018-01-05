@@ -41,6 +41,8 @@
 
 8. [缓存](https://developer.android.com/topic/libraries/architecture/room.html) 
 
+9. [RxPermissions](https://github.com/tbruyelle/RxPermissions)
+
 ## 项目结构
 
 - api           网络封装
