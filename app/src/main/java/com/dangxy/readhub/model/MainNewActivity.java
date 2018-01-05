@@ -6,6 +6,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.dangxy.readhub.R;
 
@@ -39,5 +41,23 @@ public class MainNewActivity extends AppCompatActivity {
         tlReadHubList.setupWithViewPager(vpReadHubList);
         tlReadHubList.setTabMode(TabLayout.MODE_FIXED);
         tlReadHubList.setTabsFromPagerAdapter(readhubAdapter);
+    }
+    private long exitTime = 0;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(this, "再点击一次，退出Readhub", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
+            return true;
+
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
