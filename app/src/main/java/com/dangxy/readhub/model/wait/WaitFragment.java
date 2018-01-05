@@ -15,7 +15,6 @@ import com.dangxy.readhub.room.Wait;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 
 /**
  * @author dangxy99
@@ -29,7 +28,6 @@ public class WaitFragment extends BaseLazyFragment implements WaitContract.IWait
     RecyclerView rvWait;
     @BindView(R.id.srl_wait)
     SwipeRefreshLayout srlWait;
-    Unbinder unbinder;
     private WaitPresenter waitPresenter;
     private WaitListAdapter waitListAdapter;
 
@@ -54,13 +52,6 @@ public class WaitFragment extends BaseLazyFragment implements WaitContract.IWait
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ReadhubApplication.getInstance());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvWait.setLayoutManager(linearLayoutManager);
-    }
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 
     @Override

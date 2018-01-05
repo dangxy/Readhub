@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             app:tabGravity="center"
             app:tabIndicatorColor="@color/colorPrimaryDark"
-            app:tabIndicatorHeight="5dp"
+            app:tabIndicatorHeight="3dp"
             app:tabSelectedTextColor="@color/color_222f3b"
             app:tabTextColor="@color/color_808e97"
             android:background="@color/common_color_white"/>

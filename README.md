@@ -17,7 +17,7 @@
 
 ## 内容
 
-<img src="https://ws4.sinaimg.cn/large/006tNc79ly1fn37pimrdvj30u01hcq9y.jpg" width="40%" alt=""/>
+<img src="https://ws2.sinaimg.cn/large/006tNc79ly1fn65bitq2lg30g60ss7wm.gif" width="40%" alt=""/>
 
 ## 技术
 
@@ -42,6 +42,8 @@
 8. [缓存](https://developer.android.com/topic/libraries/architecture/room.html) 
 
 9. [RxPermissions](https://github.com/tbruyelle/RxPermissions)
+
+10. CoordinatorLayout + AppBarLayout + TabLayout
 
 ## 项目结构
 
