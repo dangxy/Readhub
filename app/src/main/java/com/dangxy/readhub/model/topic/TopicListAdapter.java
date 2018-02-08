@@ -23,10 +23,10 @@ import java.util.List;
 
 public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.ViewHolder> {
 
-    private List<TopicEntity.DataBean> listEntities = new ArrayList<>();
+    private List<TopicEntity.Topic> listEntities = new ArrayList<>();
     private DetailClickListener mDetailClickListener;
 
-    public TopicListAdapter(List<TopicEntity.DataBean> listEntities) {
+    public TopicListAdapter(List<TopicEntity.Topic> listEntities) {
         this.listEntities = listEntities;
     }
 
@@ -55,7 +55,7 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.View
         holder.title.setText(listEntities.get(position).getTitle());
         holder.summary.setText(listEntities.get(position).getSummary());
 
-        holder.more.setText(TimeUtils.getDateCompareResult(TimeUtils.getTimeStampByReahubDateString(listEntities.get(position).getUpdatedAt())));
+        holder.more.setText(TimeUtils.getDateCompareResult(TimeUtils.getTimeStampByReahubDateString(listEntities.get(position).getPublishDate())));
 
 
       holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +96,12 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.View
         }
     }
 
-    public void addAll(List<TopicEntity.DataBean> topicList) {
+    public void addAll(List<TopicEntity.Topic> topicList) {
         listEntities.addAll(topicList);
         notifyDataSetChanged();
     }
 
-    public void refresh(List<TopicEntity.DataBean> topicList) {
+    public void refresh(List<TopicEntity.Topic> topicList) {
         listEntities.clear();
         listEntities.addAll(topicList);
         notifyDataSetChanged();
