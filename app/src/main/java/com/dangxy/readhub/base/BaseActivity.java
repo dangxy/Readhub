@@ -6,8 +6,9 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 
 import com.dangxy.readhub.R;
-import com.trello.rxlifecycle2.LifecycleTransformer;
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.trello.rxlifecycle3.LifecycleTransformer;
+import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

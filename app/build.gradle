@@ -1,18 +1,4 @@
-buildscript {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
-
-    dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
-    }
-}
 apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
-
-repositories {
-    maven { url 'https://maven.fabric.io/public' }
-}
 
 
 android {
@@ -55,7 +41,7 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
     compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.github.bumptech.glide:glide:4.4.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
@@ -73,8 +59,9 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
     implementation "android.arch.paging:runtime:1.0.0-alpha4-1"
     implementation "android.arch.persistence.room:rxjava2:1.0.0"
-    compile 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
-    compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    implementation 'com.trello.rxlifecycle3:rxlifecycle:3.0.0'
+    implementation 'com.trello.rxlifecycle3:rxlifecycle-android:3.0.0'
+    implementation 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
     compile files('libs/tbs_sdk_thirdapp_v3.5.0.1004_43500_sharewithdownload_withoutGame_obfs_20170801_113025.jar')
     compile('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
         transitive = true;
